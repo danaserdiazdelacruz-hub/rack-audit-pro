@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3d1f0a;
+  --color-accent: #92400e;
+  --color-success: #16a34a;
+  --color-warning: #ca8a04;
+  --color-danger: #dc2626;
+  --color-surface: #e8ecf2;
+  --color-surface-elevated: #ffffff;
+  --color-border: #c9d2de;
+  --color-text: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-neutral: #94a3b8;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  touch-action: manipulation;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar { height: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #dce3ee; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* Selection pulse animation */
+.animate-select-pulse {
+  animation: selectPulse 0.2s ease-out;
+}
+
+@keyframes selectPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.02); }
+}
+
+/* Toast animation */
+.toast-enter {
+  animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
